@@ -1,0 +1,16 @@
+facture_homepage:
+    path:     /
+    defaults: { _controller: FactureBundle:Default:index }
+facture_del:
+    path:     /dell/{idFacture}
+    defaults: { _controller: FactureBundle:Facture:dell}
+delete_facture:
+        path: /deletepost/{idFacture}
+        defaults: {_controller: FactureBundle:Facture:deletepost }
+delete_facture1:
+    path: /deletepost1/{id_reclamation}
+    defaults: {_controller: FactureBundle:Reclamation:deletepost1 }
+
+
+
+

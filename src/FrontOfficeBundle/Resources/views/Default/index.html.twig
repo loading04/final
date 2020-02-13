@@ -1,0 +1,29 @@
+{% extends '@FrontOffice/base.html.twig' %}
+{% block content %}
+<table border="2" align="center">
+    {% for t in produit %}
+    <tr>
+        <form>
+        <td>
+          {{ t.id }}
+        </td>
+        <td>
+            {{ t.nom }}
+        </td>
+        <td>
+            {{ t.prix }}
+        </td>
+            <td>
+                <input type="text" name="qte" />
+            </td>
+        <td>
+            <input hidden="hidden" name="produit_id" value="{{ t.id }}">
+            <input type="submit" value="Ajputer"/>
+        </td>
+
+        </form>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

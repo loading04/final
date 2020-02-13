@@ -1,0 +1,43 @@
+{% extends 'baseB.html.twig' %}
+
+{% block body %}
+    <h1>Factures list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idfacture</th>
+                <th>Employeeid</th>
+                <th>Fournisseurid</th>
+                <th>Typeproduct</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td><a href="{{ path('facture_show', { 'idFacture': facture.idFacture }) }}">{{ facture.idFacture }}</a></td>
+                <td>{{ facture.employeeId }}</td>
+                <td>{{ facture.fournisseurId }}</td>
+                <td>{{ facture.typeProduct }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('facture_show', { 'idFacture': facture.idFacture }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('facture_edit', { 'idFacture': facture.idFacture }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('facture_new') }}">Create a new facture</a>
+        </li>
+    </ul>
+{% endblock %}

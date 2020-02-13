@@ -1,0 +1,48 @@
+{% block body %}
+    <table border="2" align="center">
+        {% set total = 0 %}
+        {% for t in details %}
+            <tr>
+                <form>
+                    <td>
+                        {{ t.qte}}
+                    </td>
+                    <td>
+                        {{ t.produit.nomProduit }}
+                    </td>
+                    <td>
+                        {{ t.produit.prixVente }}
+                    </td>
+                    <td>
+                        {{ t.produit.prixVente*t.qte }}
+                        {%  set total = total +  t.produit.prixVente*t.qte %}
+                    </td>
+                    <td>
+                        <input hidden="hidden" name="detail_id" value="{{ t.id }}">
+                        <input type="submit" value="Supprimer"/>
+                    </td>
+                </form>
+
+
+
+
+        {% endfor %}
+            </tr>
+        <td>
+            <h3>Prix Total : </h3>
+        </td>
+        <td></td>
+        <td></td>
+        <td>{{ total }}</td>
+        </tr>
+
+    </table>
+    <a href={{ path('vider') }}> vider Panier </a>
+    <a href={{ path('commande') }}><button>Commander</button></a>
+    <div class="clearfix"></div>
+    {% if details|length!=0 %}
+        <a href={{ path('read') }}>continuer mes achats</a>
+    {% endif%}
+
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends '@Blog/base.html.twig' %}
+{% block content %}
+    <!doctype html>
+    <html lang="zxx">
+
+{% block stylesheets %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>aranoz</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/bootstrap.min.css') }}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/animate.css') }}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/owl.carousel.min.css') }}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/all.css') }}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/themify-icons.css') }}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/magnific-popup.css') }}">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/slick.css') }}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{{ asset('blog_assets/css/style.css') }}">
+</head>
+{% endblock %}
+
+    <body>
+    <section class="blog_area padding_top">
+        <div class="container">
+            <div class="row">
+                {% for posts in posts %}
+                    {% block post %}
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="card-img rounded-0" src="{{ asset('uploads/post/' ~ posts.photo) }}" alt="{{ posts.title }}">
+                                <a  class="blog_item_date">
+                                    <h3>{{ posts.postdate|date("d") }}</h3>
+                                    <p>{{ posts.postdate|date("F") }}</p>
+                                </a>
+                            </div>
+
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="{{ path('detailed_post',{'id':posts.id}) }}">
+                                    <h2>{{ posts.title }}</h2>
+                                </a>
+                                <p>{{ posts.description|slice(1,50)}} ...</p>
+                                <a href="{{ path('update_post',{'id':posts.id}) }}"><button type="button" name="edit"> edit</button></a>
+                                <a href="{{ path('delete_post',{'id':posts.id}) }}"><button name="delete">delete</button></a>
+                                <a href="{{ path('detailed_post',{'id':posts.id}) }}"><button name="view">read more</button></a>
+
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                    {% endblock %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    </body>
+</html>
+{% endblock %}
+
+
+
+
+

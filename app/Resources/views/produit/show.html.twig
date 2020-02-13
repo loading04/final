@@ -1,0 +1,63 @@
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
+    <h1>Produit</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Reference</th>
+                <td>{{ produit.reference }}</td>
+            </tr>
+            <tr>
+                <th>Nomproduit</th>
+                <td>{{ produit.nomProduit }}</td>
+            </tr>
+            <tr>
+                <th>Descriptionproduit</th>
+                <td>{{ produit.descriptionProduit }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ produit.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prixunitaire</th>
+                <td>{{ produit.prixUnitaire }}</td>
+            </tr>
+            <tr>
+                <th>Prixvente</th>
+                <td>{{ produit.prixVente }}</td>
+            </tr>
+            <tr>
+                <th>Datefabrication</th>
+                <td>{{ produit.dateFabrication|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Dateexpiration</th>
+                <td>{{ produit.dateExpiration|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Imageproduit</th>
+                <td>{{ produit.imageProduit }}</td>
+            </tr>
+            <tr>
+                <th>photoproduit</th>
+                <td><img class="card-img rounded-0" src="{{ asset('uploads/produit/' ~ produit.photoProduit) }}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('produit_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('produit_edit', { 'reference': produit.reference }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

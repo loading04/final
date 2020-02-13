@@ -1,0 +1,54 @@
+blog_homepage:
+    path:     /list
+    defaults: { _controller: BlogBundle:Blog:listpost }
+
+
+Create_post:
+    path: /add
+    defaults: {_controller: BlogBundle:Blog:add }
+
+list_post:
+    path: /list
+    defaults: {_controller: BlogBundle:Blog:listpost }
+
+update_post:
+    path: /updatepost/{id}
+    defaults: {_controller: BlogBundle:Blog:updatepost }
+
+delete_post:
+    path: /deletepost/{id}
+    defaults: {_controller: BlogBundle:Blog:deletepost }
+
+detailed_post:
+    path:     /detailedpost/{id}
+    defaults: { _controller: BlogBundle:Blog:showdetailed }
+add_section:
+    path:     /addsection
+    defaults: { _controller: BlogBundle:Section:add }
+
+list_section:
+    path: /listsection
+    defaults: {_controller: BlogBundle:Section:listsection }
+delete_section:
+    path:     /deletesection/{id}
+    defaults: { _controller: BlogBundle:Section:delete }
+
+update_section:
+    path:     /updatesection/{id}
+    defaults: { _controller: BlogBundle:Section:update }
+
+add_tag:
+    path:     /addtag
+    defaults: { _controller: BlogBundle:Tag:add }
+
+list_tag:
+    path: /listtag
+    defaults: {_controller: BlogBundle:Tag:listtag }
+
+delete_tag:
+    path:     /deletetag/{id}
+    defaults: { _controller: BlogBundle:Tag:delete }
+
+update_tag:
+    path:     /updatetag/{id}
+    defaults: { _controller: BlogBundle:Tag:update }

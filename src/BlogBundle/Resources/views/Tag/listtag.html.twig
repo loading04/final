@@ -1,0 +1,33 @@
+{% extends '@Blog/base.html.twig' %}
+{% block content %}
+
+<link href="{{ asset('blog_assets/css/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
+<script src="{{ asset('blog_assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('blog_assets/js/jquery-1.12.1.min.js') }}"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+            <a href="{{ path('add_tag') }}" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new tag</a>
+            <tr>
+
+                <th>Title</th>
+
+                <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            {% for tags in tags %}
+                {% block tag %}
+                    <tr>
+                        <td> {{tags.title}}</td>
+
+                        <td class="text-center"><a class='btn btn-info btn-xs' href="{{ path('update_tag',{'id':tags.id}) }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="{{ path('delete_tag',{'id':tags.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                    </tr>s
+                {% endblock%}
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock%}

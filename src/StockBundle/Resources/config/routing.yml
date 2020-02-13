@@ -1,0 +1,65 @@
+stock_homepage:
+    path:     /
+    defaults: { _controller: StockBundle:Default:new}
+
+stock_homepage1:
+    path:     /new
+    defaults: { _controller: StockBundle:produit:new}
+
+
+stock_homepage2:
+        path:     /edit/{reference}
+        defaults: { _controller: StockBundle:produit:edit}
+
+stock_homepage3:
+    path:     /show
+    defaults: { _controller: StockBundle:produit:show}
+
+
+delete_produit:
+    path: /deleteproduit/{reference}
+    defaults: {_controller: StockBundle:produit:delete }
+
+delete_commande:
+    path: /deletecommande/{id}
+    defaults: {_controller: StockBundle:commande:delete }
+
+stock_homepagecom:
+    path:     /commande
+    defaults: { _controller: StockBundle:commande:new}
+
+stock_comindex:
+    path:     /commande
+    defaults: { _controller: StockBundle:commande:index}
+
+update_commande:
+    path: /editcommande/{id}
+    defaults: {_controller: StockBundle:commande:edit }
+
+
+delete_categorie:
+    path: /deletecategorie/{id}
+    defaults: {_controller: StockBundle:categorie:delete }
+
+stock_homepage4:
+    path:     /categorie
+    defaults: { _controller: StockBundle:categorie:index}
+
+stock_homepagepro:
+    path:     /produit
+    defaults: { _controller: StockBundle:produit:index}
+
+stock_homepage5:
+    path:     /categorie/new
+    defaults: { _controller: StockBundle:categorie:new}
+
+
+stock_homepage6:
+    path:     /editcategorie/{id}
+    defaults: { _controller: StockBundle:categorie:edit}
+
+stock_homepage7:
+    path:     /show
+    defaults: { _controller: StockBundle:produit:show}
+
+

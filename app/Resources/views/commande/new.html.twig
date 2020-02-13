@@ -1,0 +1,26 @@
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
+    <link href="{{ asset('css/bootstrap2.min.css') }}" rel="stylesheet">
+    <!--external css-->
+    <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/style-responsive.css')}}" rel="stylesheet">
+    <!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="{{ asset('css/jquery.fileupload.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.fileupload-ui.css')}}">
+    <div><center>
+    <h1>Commande creation</h1><br>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <input type="submit" value="Create" class="btn btn-outline-danger" />
+        <button type="button" class="btn btn-outline-primary"><a href="{{ path('commande_index') }}">Back</a></button>
+    </center></div>
+    {{ form_end(form) }}
+
+
+{% endblock %}

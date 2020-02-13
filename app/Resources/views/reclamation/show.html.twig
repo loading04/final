@@ -1,0 +1,46 @@
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
+    <h1>Reclamation</h1>
+    <link href="{{ asset('css/bootstrap2.min.css') }}" rel="stylesheet">
+    <!--external css-->
+    <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/style-responsive.css')}}" rel="stylesheet">
+    <!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="{{ asset('css/jquery.fileupload.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.fileupload-ui.css')}}">
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id_reclamation</th>
+                <td>{{ reclamation.idreclamation }}</td>
+            </tr>
+            <tr>
+                <th>Clientid</th>
+                <td>{{ reclamation.clientId }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ reclamation.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reclamation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reclamation_edit', { 'id_reclamation': reclamation.id_reclamation }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

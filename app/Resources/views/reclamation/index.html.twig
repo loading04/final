@@ -1,0 +1,63 @@
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
+    <h1>Reclamations list</h1>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="{{ asset('css/bootstrap2.min.css') }}" rel="stylesheet">
+    <!--external css-->
+    <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/style-responsive.css')}}" rel="stylesheet">
+    <!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="{{ asset('css/jquery.fileupload.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.fileupload-ui.css')}}">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id_reclamation</th>
+                <th>Clientid</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            <tr>
+                <td><a href="{{ path('reclamation_show', { 'id_reclamation': reclamation.id_reclamation }) }}">{{ reclamation.idreclamation }}</a></td>
+                <td>{{ reclamation.clientId }}</td>
+                <td>{{ reclamation.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                <td><p data-placement="top" data-toggle="tooltip" title="Edit">
+                        <a href="{{ path('reclamation_edit', { 'id_reclamation': reclamation.id_reclamation }) }}">
+                            <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" >
+                                <span class="glyphicon glyphicon-pencil"></span></button></a></p></td>
+                        </li>
+                        <li>
+                            <td><p data-placement="top" data-toggle="tooltip" title="Delete">
+                                    <a href="{{ path('delete_facture1', { 'id_reclamation': reclamation.id_reclamation }) }}">
+
+                                        <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" >
+                                            <span class="glyphicon glyphicon-trash"></span></button></a></p></td>
+
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <button type="button" class="btn btn-outline-primary"><a href="{{ path('reclamation_new') }}">Create a new reclamation</a></button>
+
+        </li>
+    </ul>
+{% endblock %}

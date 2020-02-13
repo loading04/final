@@ -1,0 +1,24 @@
+front_office_homepage:
+    path:     /index
+    defaults: { _controller: FrontOfficeBundle:Default:index }
+read:
+     path:     /read
+     defaults: { _controller: FrontOfficeBundle:FrontOffice:read }
+readdetail:
+  path:     /readdetail
+  defaults: { _controller: FrontOfficeBundle:detail:read}
+vider:
+    path:     /viderdetail
+    defaults: { _controller: FrontOfficeBundle:detail:vider}
+commande:
+  path:     /commande
+  defaults: { _controller: FrontOfficeBundle:Commande:vider}
+readcommande:
+  path:     /readcommande
+  defaults: { _controller: FrontOfficeBundle:Commande:read}
+update:
+  path:     /update
+  defaults: { _controller: FrontOfficeBundle:detail:update}
+supp:
+  path:     /supp/{id}
+  defaults: { _controller: FrontOfficeBundle:detail:supp}

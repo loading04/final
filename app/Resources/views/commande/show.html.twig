@@ -1,0 +1,43 @@
+{% extends '@Backoffice/base.html.twig' %}
+{% block content %}
+    <h1>Commande</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Reference commande </th>
+                <td>{{ commande.idcommande }}</td>
+            </tr>
+            <tr>
+                <th>Nom produit</th>
+                <td>{{ commande.nomProduit }}</td>
+            </tr>
+            <tr>
+                <th>Fournisseur</th>
+                <td>{{ commande.idFournisseur }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ commande.idCategorie }}</td>
+            </tr>
+            <tr>
+                <th>Quantite produit</th>
+                <td>{{ commande.quantiteCammande }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('commande_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('commande_edit', { 'id_commande': commande.id_commande }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends '@FrontOffice/base.html.twig' %}
+{% block content %}
+    <section class="cart_area padding_top">
+        <form action="{{ path('update') }}">
+            <div class="container">
+                <div class="cart_inner">
+                    <div class="table-responsive">
+                        {% for c in commandes %}
+                        <h6>{{ dates[loop.index]|date('Y-m-d')  }}</h6>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for t in c %}
+                                <tr>
+                                    <td>
+                                        <div class="media">
+                                            <div class="d-flex">
+                                                <img src="{{ asset('uploads/produit/' ~ t.produit.photoProduit) }}" alt="" />
+                                            </div>
+                                            <div class="media-body">
+                                                <p>{{t.produit.nomProduit}}</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h5>${{t.produit.prixVente}}</h5>
+                                    </td>
+                                    <td>
+
+                                            <input class="input-number" type="text" name="qte_{{ t.id }}" value="{{ t.qteC }}" min="0" max="1000" disabled="disabled">
+                                    </td>
+                                    <td>
+                                        <h5>${{t.qteC*t.produit.prixVente}}</h5>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+
+
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                        <div class="checkout_btn_inner float-right">
+                            <a class="btn_1" href="{{ path('read') }}">Continue Shopping</a>
+                            <a class="btn_1 checkout_btn_1" href="{{ path('commande') }}">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}
